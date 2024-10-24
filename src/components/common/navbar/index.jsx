@@ -12,7 +12,8 @@ import {
 
 const NavBar = () => {
   return (
-    <div className="relative top-0 ml-[7%] flex items-center justify-between px-4 py-1  ">
+    // <div className="relative top-0 ml-[7%] flex items-center justify-between px-4 py-1 ">
+    <div className="relative top-0 ml-[7%] flex flex-col items-center justify-between px-4 py-1 space-y-3 mt-3 lg:flex-row lg:mt-3">
       <div className="flex items-center ">
         <img
           src="https://front.ataria.tech/assets/images/logo/logo.png"
@@ -32,7 +33,7 @@ const NavBar = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="flex items-center bg-white rounded  px-4 py-1 border-2 ">
+      <div className="flex items-center bg-white rounded  px-4 py-1 border-4 hover:border-blue-300 ">
         <input
           type="text"
           placeholder="Search..."

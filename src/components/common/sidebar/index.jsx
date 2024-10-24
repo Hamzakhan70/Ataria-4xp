@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./sidebarStyle.css";
 import {
   FaUserShield,
   FaUserTie,
@@ -11,9 +11,8 @@ import {
   FaEnvelope,
   FaLifeRing,
   FaBars,
-  FaTimes, // Cross icon for closing the menu
+  FaTimes,
 } from "react-icons/fa";
-import { ImCross } from "react-icons/im";
 const roleData = [
   { name: "admin", icon: <FaUserShield /> },
   { name: "employees", icon: <FaUserTie /> },
@@ -37,7 +36,7 @@ const SideBar = ({ role: active, setRole }) => {
       <div className="sm:hidden absolute left-4 top-4 z-20">
         {isOpen ? (
           <FaTimes
-            className="text-2xl cursor-pointer"
+            className="text-2xl cursor-pointer mt-[2%]"
             onClick={toggleSidebar}
           />
         ) : (
@@ -45,14 +44,14 @@ const SideBar = ({ role: active, setRole }) => {
         )}
       </div>
       <div
-        className={`fixed top-0 left-0 h-full z-10 transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 left-0 h-full z-10 transform transition-transform duration-300 ease-in-out text-2xl
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          sm:translate-x-0 sm:w-[5%] w-[70%] bg-white shadow-lg border-r-2 border-black text-2xl `}
+          w-[30%] bg-white shadow-lg border-r-2 border-black  overflow-y-auto custom-scrollbar sm:translate-x-0 sm:w-[5%]  lg:w-[7%] lg:text-2xl md:w-[10%] md:text-2xl md:p-2 md:m-1`}
       >
         {roleData.map(({ name, icon }) => (
           <div
             key={name}
-            className={`px-3 py-5 cursor-pointer flex justify-center items-center mt-12
+            className={`px-3 py-3 cursor-pointer flex justify-center items-center lg:mt-12 
                       ${
                         name === active
                           ? "bg-gray-200 text-red-600 m-2 rounded-3xl"
