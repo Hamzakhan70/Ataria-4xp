@@ -12,7 +12,7 @@ import Employee from "./components/employee";
 import SideBar from "./components/common/sidebar";
 import NavBar from "./components/common/navbar";
 import Hero from "./components/common/hero";
-
+import "./App.css";
 const App = () => {
   const [role, setRole] = useState("admin");
 
@@ -24,13 +24,13 @@ const App = () => {
         <Hero role={role} setRole={setRole} />
         <div className="main-content ml-[7%]">
           {" "}
-          {/* <Routes>
+          <Routes>
             <Route path="/" element={<Navigate to="/admin" />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/client" element={<Client />} />
             <Route path="/employee" element={<Employee />} />
             <Route path="/complience" element={<Complience />} />
-          </Routes> */}
+          </Routes>
         </div>
       </div>
     </Router>

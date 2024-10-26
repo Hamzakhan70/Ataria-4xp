@@ -1,0 +1,6 @@
+@media (min-width: 470px) and (max-width: 767px) {
+  .custom-position {
+    left: 200%;
+    right: auto; /* Override right if necessary */
+  }
+}

@@ -1,14 +1,14 @@
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 2px; /* Width of the scrollbar */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    #442477,
-    #545eec
+    #c8c6ca,
+    #6e6f81
   ); /* Gradient color for the scrollbar */
-  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  /* border-radius: 10px; Rounded corners for the scrollbar thumb */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -16,6 +16,6 @@
 }
 
 .custom-scrollbar {
-  scrollbar-width: thin; /* Firefox scrollbar */
-  scrollbar-color: #7832e7 #f1f1f1; /* Scrollbar color for Firefox */
+  scrollbar-width: 4px; /* Firefox scrollbar */
+  scrollbar-color: #c8c6ca, #6e6f81; /* Scrollbar color for Firefox */
 }

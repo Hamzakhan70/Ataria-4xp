@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./sidebarStyle.css";
+import { useNavigate } from "react-router-dom";
 import {
   FaUserShield,
   FaUserTie,
@@ -21,6 +22,7 @@ const roleData = [
   { name: "accounts", icon: <FaBook /> },
   { name: "IBsection", icon: <FaBuilding /> },
   { name: "Crm", icon: <FaChartLine /> },
+  { name: "Faq", icon: <FaChartLine /> },
   { name: "fundmanagement", icon: <FaChartLine /> },
   { name: "emails", icon: <FaEnvelope /> },
   { name: "support", icon: <FaLifeRing /> },
@@ -28,9 +30,13 @@ const roleData = [
 
 const SideBar = ({ role: active, setRole }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    navigate(`/${active}`);
+  }, [active]);
   return (
     <>
       <div className="sm:hidden absolute left-4 top-4 z-20">
@@ -46,12 +52,12 @@ const SideBar = ({ role: active, setRole }) => {
       <div
         className={`fixed top-0 left-0 h-full z-10 transform transition-transform duration-300 ease-in-out text-2xl
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          w-[30%] bg-white shadow-lg border-r-2 border-black  overflow-y-auto custom-scrollbar sm:translate-x-0 sm:w-[5%]  lg:w-[7%] lg:text-2xl md:w-[10%] md:text-2xl md:p-2 md:m-1`}
+          w-[30%] bg-white shadow-lg overflow-y-auto custom-scrollbar sm:translate-x-0 sm:w-[10%]  lg:w-[7%] lg:text-2xl md:w-[10%] md:text-2xl md:p-2 md:m-1`}
       >
         {roleData.map(({ name, icon }) => (
           <div
             key={name}
-            className={`px-3 py-3 cursor-pointer flex justify-center items-center lg:mt-12 
+            className={`px-3 py-3 cursor-pointer flex justify-center items-center lg:mt-4 
                       ${
                         name === active
                           ? "bg-gray-200 text-red-600 m-2 rounded-3xl"

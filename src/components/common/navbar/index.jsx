@@ -13,7 +13,7 @@ import {
 const NavBar = () => {
   return (
     // <div className="relative top-0 ml-[7%] flex items-center justify-between px-4 py-1 ">
-    <div className="relative top-0 ml-[7%] flex flex-col items-center justify-between px-4 py-1 space-y-3 mt-3 lg:flex-row lg:mt-3">
+    <div className="relative top-0 ml-[7%] flex flex-col items-center justify-between px-[2%] py-1 space-y-3 mt-3 lg:flex-row lg:mt-3 xl:px-18">
       <div className="flex items-center ">
         <img
           src="https://front.ataria.tech/assets/images/logo/logo.png"
@@ -22,7 +22,6 @@ const NavBar = () => {
         />
       </div>
 
-      {/* Buttons */}
       <div className="flex space-x-4">
         <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-blue-500">
           IB SECTION
@@ -32,7 +31,6 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Search Bar */}
       <div className="flex items-center bg-white rounded  px-4 py-1 border-4 hover:border-blue-300 ">
         <input
           type="text"
@@ -42,8 +40,7 @@ const NavBar = () => {
         <FaSearch className="text-gray-400" />
       </div>
 
-      {/* Icons Section */}
-      <div className="flex space-x-4">
+      <div className="flex space-x-3">
         <div className="p-3 bg-black text-white rounded-full hover:bg-blue-500 transition duration-300 cursor-pointer">
           <FaComments />
         </div>
