@@ -5,11 +5,6 @@ window.onscroll = function () {
 
 function scrollFunction() {
   const heroDiv = document.getElementById("hero");
-  console.log(
-    document.body.scrollTop,
-    document.documentElement.scrollTop,
-    "elment scroll"
-  );
   if (window.innerWidth <= 640) {
     // Apply only on small screens
     if (

@@ -61,13 +61,12 @@ const cardData = [
 const Admin = () => {
   return (
     <div className="w-full h-auto lg:h-[85vh] py-2 px-[2%] md:px-10 text-black">
-      <span className="text-black font-bold text-2xl p-2">Admin Portal</span>
       <div className="h-auto lg:h-[40%] rounded-lg bg-gradient-to-r from-blue-900 via-purple-800 to-black flex flex-col lg:flex-row justify-between p-4 mb-6">
         <div>
           <h1 className="text-white font-bold text-2xl p-2">
             Welcome to{" "}
             <span className="font-extrabold text-3xl md:text-4xl lg:text-5xl">
-              4X Portal
+              4XPortal
             </span>
           </h1>
           <span className="text-gray-300 ml-4">by 4xportal.com</span>

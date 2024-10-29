@@ -3,17 +3,15 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import "./roleStyle.css";
 import "./roles";
 import ScrollBar from "./scrollBar";
+import { Link } from "react-router-dom";
 const userRoles = [
   "admin",
-  "employees",
+  "employee",
   "clientArea",
   "compliance",
   "accounts",
   "IBsection",
-  "Crm",
-  "fundmanagement",
-  "emails",
-  "support",
+  "todo",
 ];
 const Roles = ({ role: active, setRole }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +27,7 @@ const Roles = ({ role: active, setRole }) => {
   }, [isOpen]);
   return (
     <div className="px-[2%]">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center ">
         {isOpen ? (
           <FaMinus
             className="text-2xl cursor-pointer"
@@ -45,8 +43,12 @@ const Roles = ({ role: active, setRole }) => {
       <div
         className={`
         ${
-          isOpen ? "flex" : "hidden"
-        } flex flex-wrap justify-center items-center `}
+          isOpen
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 -translate-y-[278px] absolute scale-90 pointer-events-none"
+          // isOpen ? "animate-slide-in" : "animate-slide-out"
+        } flex flex-wrap justify-center items-center transform transition-all duration-[1000ms] ease-in-out
+       `}
       >
         {userRoles.map((role) => (
           <div
@@ -56,6 +58,7 @@ const Roles = ({ role: active, setRole }) => {
             } xl:mx-3  2xl:mx-5 2xl:px-5`}
             onClick={() => setRole(role)}
           >
+            {/* <Link to={role}>{role}</Link> */}
             {role}
           </div>
         ))}

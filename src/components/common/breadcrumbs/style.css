@@ -1,0 +1,21 @@
+.breadcrumb-container {
+  margin: 0 42px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.breadcrumb li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.breadcrumb li a:hover {
+  text-decoration: underline;
+}

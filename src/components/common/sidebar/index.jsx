@@ -21,11 +21,6 @@ const roleData = [
   { name: "compliance", icon: <FaBalanceScale /> },
   { name: "accounts", icon: <FaBook /> },
   { name: "IBsection", icon: <FaBuilding /> },
-  { name: "Crm", icon: <FaChartLine /> },
-  { name: "Faq", icon: <FaChartLine /> },
-  { name: "fundmanagement", icon: <FaChartLine /> },
-  { name: "emails", icon: <FaEnvelope /> },
-  { name: "support", icon: <FaLifeRing /> },
 ];
 
 const SideBar = ({ role: active, setRole }) => {
