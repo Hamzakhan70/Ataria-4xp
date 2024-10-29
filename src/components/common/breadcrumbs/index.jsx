@@ -7,7 +7,6 @@ const Breadcrumbs = () => {
   const location = useLocation();
   // Get path segments, splitting the path by "/"
   const pathSegments = location.pathname.split("/").filter((path) => path);
-
   // Map paths to labels
   const breadcrumbNames = {
     admin: "Admin",
@@ -21,8 +20,9 @@ const Breadcrumbs = () => {
     <nav aria-label="breadcrumb" className="breadcrumb-container">
       <div>
         <span className="text-black font-bold text-2xl p-2">
-          {pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1)}{" "}
-          Portal
+          {/* {pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1)}{" "}
+          Portal */}
+          {pathSegments}
         </span>
       </div>
       <div>

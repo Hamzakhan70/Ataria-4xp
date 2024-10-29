@@ -76,6 +76,13 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+const TradePortal = lazy(() => import("./components/tradeportal/index"));
+const Accounts = lazy(() => import("./components/tradeportal/accounts"));
+const Funds = lazy(() => import("./components/tradeportal/funds"));
+const Help = lazy(() => import("./components/tradeportal/help"));
+const TradeHistory = lazy(() =>
+  import("./components/tradeportal/trade-history")
+);
 const Admin = lazy(() => import("./components/admin"));
 const Client = lazy(() => import("./components/client"));
 const Complience = lazy(() => import("./components/complience"));
@@ -100,7 +107,7 @@ const LoadingSpinner = () => (
 );
 
 const App = () => {
-  const [role, setRole] = useState("admin");
+  const [role, setRole] = useState("dashboard");
   const [loading, setLoading] = useState(false);
 
   const handleRoleChange = (newRole) => {
@@ -126,11 +133,16 @@ const App = () => {
             ) : (
               <Suspense fallback={<LoadingSpinner />}>
                 <Routes>
-                  <Route path="/" element={<Navigate to="/admin" />} />
-                  <Route path="/admin" element={<Admin />} />
-                  <Route path="/client" element={<Client />} />
-                  <Route path="/employee" element={<Employee />} />
-                  <Route path="/compliance" element={<Complience />} />
+                  <Route path="/" element={<Navigate to="/dashboard" />} />
+                  <Route path="/dashboard" element={<Admin />} />
+                  <Route path="/trade-portal" element={<TradePortal />}>
+                    <Route path="accounts" element={<Accounts />} />
+                    <Route path="funds" element={<Funds />} />
+                    <Route path="trade-history" element={<TradeHistory />} />
+                    <Route path="help" element={<Help />} />
+                  </Route>
+                  <Route path="/ib" element={<Employee />} />
+                  <Route path="/market" element={<Complience />} />
                   <Route path="/todo" element={<TodoforRedux />} />
                 </Routes>
               </Suspense>

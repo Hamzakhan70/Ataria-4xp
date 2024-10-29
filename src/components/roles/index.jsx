@@ -5,12 +5,11 @@ import "./roles";
 import ScrollBar from "./scrollBar";
 import { Link } from "react-router-dom";
 const userRoles = [
-  "admin",
-  "employee",
-  "clientArea",
-  "compliance",
-  "accounts",
-  "IBsection",
+  "Dashboard",
+  "Trade-Portal",
+  "IB-Portal",
+  "Market-Analsys",
+  "PAMM-Portal",
   "todo",
 ];
 const Roles = ({ role: active, setRole }) => {
