@@ -69,6 +69,7 @@
 // };
 
 // export default App;
+
 import React, { useState, Suspense, lazy, useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -124,9 +125,9 @@ const App = () => {
       <Router>
         <div>
           <SideBar role={role} setRole={handleRoleChange} />
-          <NavBar />
-          <Hero role={role} setRole={handleRoleChange} />
-          <div className="main-content ml-[7%]">
+          <div className="border-4 border-red-900 ml-[7%] p-3">
+            <NavBar />
+            <Hero role={role} setRole={handleRoleChange} />
             <Breadcrumbs />
             {loading ? (
               <LoadingSpinner />
@@ -135,12 +136,7 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Navigate to="/dashboard" />} />
                   <Route path="/dashboard" element={<Admin />} />
-                  <Route path="/trade-portal" element={<TradePortal />}>
-                    <Route path="accounts" element={<Accounts />} />
-                    <Route path="funds" element={<Funds />} />
-                    <Route path="trade-history" element={<TradeHistory />} />
-                    <Route path="help" element={<Help />} />
-                  </Route>
+                  <Route path="/trade-portal" element={<TradePortal />} />
                   <Route path="/ib" element={<Employee />} />
                   <Route path="/market" element={<Complience />} />
                   <Route path="/todo" element={<TodoforRedux />} />

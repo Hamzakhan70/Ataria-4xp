@@ -17,9 +17,12 @@ const Breadcrumbs = () => {
   };
 
   return (
-    <nav aria-label="breadcrumb" className="breadcrumb-container">
+    <nav
+      aria-label="breadcrumb"
+      className="m-0 breadcrumb-container md:px-4 lg:px2"
+    >
       <div>
-        <span className="text-black font-bold text-2xl p-2">
+        <span className="text-black font-bold text-lg sm:font-bold md:text-2xl p-2">
           {/* {pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1)}{" "}
           Portal */}
           {pathSegments}
