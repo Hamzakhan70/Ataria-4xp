@@ -23,8 +23,7 @@ const Breadcrumbs = () => {
     >
       <div>
         <span className="text-black font-bold text-lg sm:font-bold md:text-2xl p-2">
-          {/* {pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1)}{" "}
-          Portal */}
+          {/* {pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1)}{" "} */}
           {pathSegments}
         </span>
       </div>

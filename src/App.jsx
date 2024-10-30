@@ -125,7 +125,7 @@ const App = () => {
       <Router>
         <div>
           <SideBar role={role} setRole={handleRoleChange} />
-          <div className="border-4 border-red-900 ml-[7%] p-3">
+          <div className="border-4 ml-[7%] p-3">
             <NavBar />
             <Hero role={role} setRole={handleRoleChange} />
             <Breadcrumbs />

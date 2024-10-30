@@ -5,11 +5,11 @@ import "./roles";
 import ScrollBar from "./scrollBar";
 import { Link } from "react-router-dom";
 const userRoles = [
-  "Dashboard",
-  "Trade-Portal",
-  "IB-Portal",
-  "Market-Analsys",
-  "PAMM-Portal",
+  "dashboard",
+  "trade-portal",
+  "ib-portal",
+  "market-analsys",
+  "pamm-portal",
   "todo",
 ];
 const Roles = ({ role: active, setRole }) => {

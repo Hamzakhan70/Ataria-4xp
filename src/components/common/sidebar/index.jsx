@@ -16,12 +16,12 @@ import {
   FaTimes,
 } from "react-icons/fa";
 const roleData = [
-  { name: "Dashboard", icon: <FaUserShield /> },
-  { name: "Trade-Portal", icon: <FaUserTie /> },
-  { name: "IB-Portal", icon: <FaUsers /> },
-  { name: "Market-Analysis", icon: <FaBalanceScale /> },
-  { name: "PAMM-Portal", icon: <FaBook /> },
-  { name: "Downloads-Links", icon: <FaBuilding /> },
+  { name: "dashboard", icon: <FaUserShield /> },
+  { name: "trade-portal", icon: <FaUserTie /> },
+  { name: "iB-portal", icon: <FaUsers /> },
+  { name: "market-Analysis", icon: <FaBalanceScale /> },
+  { name: "pamm-portal", icon: <FaBook /> },
+  { name: "downloads-links", icon: <FaBuilding /> },
 ];
 
 const SideBar = ({ role: active, setRole }) => {
