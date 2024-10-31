@@ -78,14 +78,7 @@ import {
   Navigate,
 } from "react-router-dom";
 const TradePortal = lazy(() => import("./components/tradeportal/index"));
-const Accounts = lazy(() => import("./components/tradeportal/accounts"));
-const Funds = lazy(() => import("./components/tradeportal/funds"));
-const Help = lazy(() => import("./components/tradeportal/help"));
-const TradeHistory = lazy(() =>
-  import("./components/tradeportal/trade-history")
-);
 const Admin = lazy(() => import("./components/admin"));
-const Client = lazy(() => import("./components/client"));
 const Complience = lazy(() => import("./components/complience"));
 const Employee = lazy(() => import("./components/employee/index"));
 const TodoforRedux = lazy(() => import("./components/todo-for-Redux"));
