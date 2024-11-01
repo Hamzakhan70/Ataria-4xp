@@ -70,6 +70,7 @@
 
 // export default App;
 
+import "./App.css";
 import React, { useState, Suspense, lazy, useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -79,16 +80,14 @@ import {
 } from "react-router-dom";
 const TradePortal = lazy(() => import("./components/tradeportal/index"));
 const Admin = lazy(() => import("./components/admin"));
-const Complience = lazy(() => import("./components/complience"));
-const Employee = lazy(() => import("./components/employee/index"));
 const TodoforRedux = lazy(() => import("./components/todo-for-Redux"));
 import SideBar from "./components/common/sidebar";
 import NavBar from "./components/common/navbar";
 import Hero from "./components/common/hero";
-import "./App.css";
+import Breadcrumbs from "./components/common/breadcrumbs";
+import IBPortal from "./components/ib-portal";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import Breadcrumbs from "./components/common/breadcrumbs";
 
 const LoadingSpinner = () => (
   <div className="loading-overlay">
@@ -130,8 +129,7 @@ const App = () => {
                   <Route path="/" element={<Navigate to="/dashboard" />} />
                   <Route path="/dashboard" element={<Admin />} />
                   <Route path="/trade-portal" element={<TradePortal />} />
-                  <Route path="/ib" element={<Employee />} />
-                  <Route path="/market" element={<Complience />} />
+                  <Route path="/ib-portal" element={<IBPortal />} />
                   <Route path="/todo" element={<TodoforRedux />} />
                 </Routes>
               </Suspense>

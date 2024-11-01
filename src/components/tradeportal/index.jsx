@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import AccountTabsContent from "./accounts";
 import FundsTabsContent from "./funds";
+import TradeHistory from "./trade-history";
+import TradeHelpContent from "./help";
 const TradePortal = () => {
   const tradePortalTabs = ["Accounts", "Funds", "Trade History", "Help"];
   const [activeTab, setActiveTab] = useState("Accounts");
   const [accountactiveTab, setAccountActiveTab] = useState("Live Accounts");
   const [fundsActiveTab, setFundsActiveTab] = useState("Deposit");
+  const [TradeHistoryActiveTab, setTradeHistoryActiveTab] =
+    useState("Open Trades");
+  const [tradeContactUsActiveTab, setTradeContactUsActiveTab] =
+    useState("Contact Us");
+
   const renderTabContent = () => {
     switch (activeTab) {
       case "Accounts":
@@ -23,9 +30,19 @@ const TradePortal = () => {
           />
         );
       case "Trade History":
-        return <div className="p-4">Trade History Content</div>;
+        return (
+          <TradeHistory
+            activeTab={TradeHistoryActiveTab}
+            onTabClick={setTradeHistoryActiveTab}
+          />
+        );
       case "Help":
-        return <div className="p-4">Help Content</div>;
+        return (
+          <TradeHelpContent
+            activeTab={tradeContactUsActiveTab}
+            onTabClick={setTradeContactUsActiveTab}
+          />
+        );
       default:
         return null;
     }

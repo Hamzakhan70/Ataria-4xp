@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./sidebarStyle.css";
-
 import { useNavigate } from "react-router-dom";
 import {
   FaUserShield,
@@ -54,7 +53,7 @@ const SideBar = ({ role: active, setRole }) => {
         {roleData.map(({ name, icon }) => (
           <div
             key={name}
-            className={`relative group px-3 py-3 cursor-pointer flex justify-center items-center lg:mt-4 
+            className={`group relative  px-3 py-3 cursor-pointer flex justify-center items-center lg:mt-4 
                       ${
                         name === active
                           ? "bg-gray-200 text-red-600 m-2 rounded-3xl"
