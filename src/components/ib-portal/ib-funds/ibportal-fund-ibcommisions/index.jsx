@@ -1,7 +1,11 @@
 import React from "react";
-
+import DemoAccount from "../../../tradeportal/accounts/demo-account";
 const IBPortalFundsIBCommissions = () => {
-  return <div>IBPortalFundsIBCommissions</div>;
+  return (
+    <div>
+      <DemoAccount />
+    </div>
+  );
 };
 
 export default IBPortalFundsIBCommissions;

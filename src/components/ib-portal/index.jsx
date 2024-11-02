@@ -1,18 +1,40 @@
 import React, { useState } from "react";
+import IBDashboardTabContent from "./ib-dashboard";
+import IBPortalAccountTabContent from "./ib-accounts";
+import IBPortalFundsTabContent from "./ib-funds";
+import IBPortalToolsTabContent from "./ib-tools";
 
 const IBPortal = () => {
   const IBPortalTabs = ["Dashboard", "Accounts", "Funds", "Tools"];
   const [activeTab, setActiveTab] = useState("Dashboard");
+  const [accountactiveTab, setAccountActiveTab] = useState("IB Account");
+  const [ibFundsActiveTab, setibFundsActiveTab] = useState("IB Commission");
+  const [ibToolsActiveTab, setIBToolsActiveTab] = useState("Media Kit");
   const renderTabContent = () => {
     switch (activeTab) {
       case "Dashboard":
-        return <h1>Dashboard</h1>;
+        return <IBDashboardTabContent />;
       case "Accounts":
-        return <h1>Accounts</h1>;
+        return (
+          <IBPortalAccountTabContent
+            activeTab={accountactiveTab}
+            onTabClick={setAccountActiveTab}
+          />
+        );
       case "Funds":
-        return <h1>Funds</h1>;
+        return (
+          <IBPortalFundsTabContent
+            activeTab={ibFundsActiveTab}
+            onTabClick={setibFundsActiveTab}
+          />
+        );
       case "Tools":
-        return <h1>Tools</h1>;
+        return (
+          <IBPortalToolsTabContent
+            activeTab={ibToolsActiveTab}
+            onTabClick={setIBToolsActiveTab}
+          />
+        );
       default:
         break;
     }

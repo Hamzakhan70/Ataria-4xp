@@ -20,7 +20,7 @@ const roleData = [
   { name: "iB-portal", icon: <FaUsers /> },
   { name: "market-Analysis", icon: <FaBalanceScale /> },
   { name: "pamm-portal", icon: <FaBook /> },
-  { name: "downloads-links", icon: <FaBuilding /> },
+  { name: "download-links", icon: <FaBuilding /> },
 ];
 
 const SideBar = ({ role: active, setRole }) => {
@@ -79,6 +79,17 @@ const SideBar = ({ role: active, setRole }) => {
             </span>
           </div>
         ))}
+        {/* <span
+          className=" relative left-[135px] lg:left-[72px] top-1 sm:left-[59px] md:left-[59px] transform -translate-y-1/2 bg-blue-500 text-white text-sm font-bold px-3 py-2 rounded-md
+          opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <div className="text-white sm:font-bold font-extralight"> {name}</div>
+          
+          <span
+            className="relative left-[-12px] top-1/2 transform -translate-y-1/2 border-[6px] border-transparent border-r-red-500"
+            style={{ borderRightColor: "#3b82f6" }}
+          ></span>
+        </span> */}
       </div>
     </>
   );

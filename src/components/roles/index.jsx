@@ -10,6 +10,7 @@ const userRoles = [
   "ib-portal",
   "market-analsys",
   "pamm-portal",
+  "download-links",
   "todo",
 ];
 const Roles = ({ role: active, setRole }) => {

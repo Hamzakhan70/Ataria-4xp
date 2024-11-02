@@ -1,6 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import "./style.css";
+import DataTable from "../../../datatabelbase";
 
+const ExpandedComponent = ({ data }) => (
+  <pre>{JSON.stringify(data, null, 2)}</pre>
+);
+
+const Export = ({ onExport }) => (
+  <button onClick={(e) => onExport(e.target.value)}>Export</button>
+);
+const columns = [
+  {
+    name: "Title",
+    selector: (row) => row.title,
+    sortable: true,
+  },
+  {
+    name: "Year",
+    selector: (row) => row.year,
+    sortable: true,
+  },
+  {
+    name: "buttons",
+    selector: (row) => row.year,
+    sortable: true,
+  },
+];
+
+const data = [
+  {
+    id: 1,
+    title: "Beetlejuice",
+    year: "1988",
+  },
+  {
+    id: 2,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+];
 const LiveAccounts = () => {
+  const [filterText, setFilterText] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const actionsMemo = React.useMemo(
+    () => <Export onExport={() => downloadCSV(data)} />,
+    []
+  );
   const accountData = [
     {
       id: 1,
@@ -43,111 +89,99 @@ const LiveAccounts = () => {
       credit: 300,
     },
   ];
+
+  // converter to excel
+  function convertArrayOfObjectsToCSV(array) {
+    let result;
+
+    const columnDelimiter = ",";
+    const lineDelimiter = "\n";
+    const keys = Object.keys(data[0]);
+
+    result = "";
+    result += keys.join(columnDelimiter);
+    result += lineDelimiter;
+
+    array.forEach((item) => {
+      let ctr = 0;
+      keys.forEach((key) => {
+        if (ctr > 0) result += columnDelimiter;
+
+        result += item[key];
+
+        ctr++;
+      });
+      result += lineDelimiter;
+    });
+
+    return result;
+  }
+  function downloadCSV(array) {
+    const link = document.createElement("a");
+    let csv = convertArrayOfObjectsToCSV(array);
+    if (csv == null) return;
+
+    const filename = "export.csv";
+
+    if (!csv.match(/^data:text\/csv/i)) {
+      csv = `data:text/csv;charset=utf-8,${csv}`;
+    }
+
+    link.setAttribute("href", encodeURI(csv));
+    link.setAttribute("download", filename);
+    link.click();
+  }
+  // Filter handler
+  const handleFilter = (e) => {
+    const searchText = e.target.value.toLowerCase();
+    setFilterText(searchText);
+
+    // Update filtered data based on search text
+    const newFilteredData = data.filter((item) =>
+      item.title.toLowerCase().includes(searchText)
+    );
+    setFilteredData(newFilteredData);
+  };
   return (
     <div>
-      <div className="">
-        <div className="flex flex-wrap space-y-1 md:justify-between md:m-2 md:p-3">
-          <div className="border border-black p-1">
-            <label>
-              Show entries{" "}
-              <select
-                name="live-accounts-table_length"
-                aria-controls="live-accounts-table"
-              >
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="-1">All</option>
-              </select>
-            </label>
-          </div>
-          <div className="dt-buttons">
-            {" "}
-            <button
-              className="border-green-800 border p-1 text-green-600"
-              tabindex="0"
-              aria-controls="live-accounts-table"
-              type="button"
-              // fdprocessedid="s1mgr7"
-            >
-              <span>
-                <i class="fa fa-chart-line"></i> Import Trading Accounts
-              </span>
-            </button>{" "}
-            <button
-              className="border-blue-600 border p-1 text-blue-600"
-              tabindex="0"
-              aria-controls="live-accounts-table"
-              type="button"
-              fdprocessedid="fuej7"
-            >
-              <span>
-                <i class="fa fa-upload"></i> Export to Excel
-              </span>
-            </button>{" "}
-            <button
-              className="border-black border p-1 text-black"
-              tabindex="0"
-              aria-controls="live-accounts-table"
-              type="button"
-              fdprocessedid="wemb5g"
-            >
-              <span>
-                <i class="fa fa-filter"></i> Filter
-              </span>
-            </button>{" "}
-          </div>
-          <div className="dataTables_filter">
-            <label>
-              <input
-                type="search"
-                className="border-black border p-1"
-                placeholder="Search..."
-                aria-controls="live-accounts-table"
-              />
-            </label>
-          </div>
-        </div>
-      </div>
+      <h1 className="text-center font-bold">demo table</h1>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-200">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="py-2 px-4 border-b">A-ID</th>
-              <th className="py-2 px-4 border-b">Login</th>
-              <th className="py-2 px-4 border-b">Account Type</th>
-              <th className="py-2 px-4 border-b">Date of Registration</th>
-              <th className="py-2 px-4 border-b">Balance</th>
-              <th className="py-2 px-4 border-b">Equity</th>
-              <th className="py-2 px-4 border-b">Free Margin</th>
-              <th className="py-2 px-4 border-b">Credit</th>
-              <th className="py-2 px-4 border-b">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {accountData.map((account) => (
-              <tr key={account.id}>
-                <td className="py-2 px-4 border-b">{account.id}</td>
-                <td className="py-2 px-4 border-b">{account.login}</td>
-                <td className="py-2 px-4 border-b">{account.accountType}</td>
-                <td className="py-2 px-4 border-b">
-                  {account.registrationDate}
-                </td>
-                <td className="py-2 px-4 border-b">{account.balance}</td>
-                <td className="py-2 px-4 border-b">{account.equity}</td>
-                <td className="py-2 px-4 border-b">{account.freeMargin}</td>
-                <td className="py-2 px-4 border-b">{account.credit}</td>
-                <td className="py-2 px-4 border-b">
-                  <button className="bg-blue-500 text-white px-3 py-1 rounded">
-                    ⋮
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="entries-dropdown">
+        <label>
+          Show entries:&nbsp;
+          <select
+            value={rowsPerPage}
+            onChange={(e) => setRowsPerPage(Number(e.target.value))}
+            style={{ padding: "5px", borderRadius: "4px" }}
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={15}>15</option>
+            <option value={20}>20</option>
+          </select>
+        </label>
       </div>
+      <input
+        type="text"
+        placeholder="Filter by Title"
+        value={filterText}
+        onChange={handleFilter}
+        style={{
+          marginBottom: "10px",
+          padding: "8px",
+          width: "200px",
+          border: "1px solid #ccc",
+          borderRadius: "4px",
+        }}
+      />
+      <DataTable
+        columns={columns}
+        data={filteredData}
+        selectableRows
+        expandableRows
+        expandableRowsComponent={ExpandedComponent}
+        actions={actionsMemo}
+      />
     </div>
   );
 };

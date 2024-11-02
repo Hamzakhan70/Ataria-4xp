@@ -1,8 +1,9 @@
 import React from "react";
-import IBPortalIBReferral from "./ibportal-ibreferrals";
-import IBPortalIBAccount from "./ibportal-ibaccount";
-const IBPortalAccountTabContent = ({ activeTab, onTabClick }) => {
-  const IBPortalAccountsTabs = ["IB Account", "IB Referrals"];
+import IBPortalToolsMedia from "./ibportal-tools-referral";
+import IBPortalToolsReferral from "./ibportal-tools-referral";
+
+const IBPortalToolsTabContent = ({ activeTab, onTabClick }) => {
+  const IBPortalToolsTabs = ["Media Kit", "Referral Code"];
   const TabButton = ({ tab, isActive, onClick }) => (
     <button
       className={`flex p-2 font-bold border rounded border-black ${
@@ -18,10 +19,10 @@ const IBPortalAccountTabContent = ({ activeTab, onTabClick }) => {
 
   const renderAccountComponent = () => {
     switch (activeTab) {
-      case "IB Account":
-        return <IBPortalIBAccount />;
-      case "IB Referrals":
-        return <IBPortalIBReferral />;
+      case "Media Kit":
+        return <IBPortalToolsMedia />;
+      case "Referral Code":
+        return <IBPortalToolsReferral />;
       default:
         break;
     }
@@ -30,7 +31,7 @@ const IBPortalAccountTabContent = ({ activeTab, onTabClick }) => {
   return (
     <div>
       <div className="grid grid-cols-2 md:flex gap-4 mb-4">
-        {IBPortalAccountsTabs.map((tab) => (
+        {IBPortalToolsTabs.map((tab) => (
           <TabButton
             key={tab}
             tab={tab}
@@ -44,4 +45,4 @@ const IBPortalAccountTabContent = ({ activeTab, onTabClick }) => {
   );
 };
 
-export default IBPortalAccountTabContent;
+export default IBPortalToolsTabContent;

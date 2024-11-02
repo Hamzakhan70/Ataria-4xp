@@ -1,0 +1,6 @@
+.custom-pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  margin-top: 10px;
+}
