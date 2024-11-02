@@ -90,6 +90,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import PAMMPORTAL from "./components/pamm-portal";
 import DownloadLinks from "./components/download-links";
+import MarketAnalysis from "./components/market-analysis";
 
 const LoadingSpinner = () => (
   <div className="loading-overlay">
@@ -132,6 +133,7 @@ const App = () => {
                   <Route path="/dashboard" element={<Admin />} />
                   <Route path="/trade-portal" element={<TradePortal />} />
                   <Route path="/ib-portal" element={<IBPortal />} />
+                  <Route path="/market-analysis" element={<MarketAnalysis />} />
                   <Route path="/pamm-portal" element={<PAMMPORTAL />} />
                   <Route path="/download-links" element={<DownloadLinks />} />
                   <Route path="/todo" element={<TodoforRedux />} />

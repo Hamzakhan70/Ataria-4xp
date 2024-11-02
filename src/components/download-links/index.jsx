@@ -1,7 +1,7 @@
 import React from "react";
 import { IoLogoApple } from "react-icons/io5";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faUser, faAndroid } from "@fortawesome/free-solid-svg-icons";
+// import { faCoffee, faUser, faAndroid } from "@fortawesome/free-solid-svg-icons";
 import { faApple } from "@fortawesome/free-brands-svg-icons";
 const DownloadLinks = () => {
   return (
@@ -45,7 +45,7 @@ const DownloadLinks = () => {
             class="btn btn-next btn-lg w-100 text-black-100"
             role="button"
           >
-            <i class="fab fa-android"></i> <FontAwesomeIcon icon={faAndroid} />{" "}
+            {/* <i class="fab fa-android"></i> <FontAwesomeIcon icon={faAndroid} />{" "} */}
             (MT5) Android
           </a>
         </button>
