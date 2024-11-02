@@ -38,6 +38,93 @@ const data = [
     title: "Ghostbusters",
     year: "1984",
   },
+  {
+    id: 3,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 4,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 5,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 6,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 7,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 8,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 9,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 10,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    id: 11,
+    title: "Ghostbusters",
+    year: "1984",
+  },
+];
+const accountData = [
+  {
+    id: 1,
+    login: 600143,
+    accountType: "test (MT5)",
+    registrationDate: "23-09-2024 09:58 AM",
+    balance: 0,
+    equity: 0,
+    freeMargin: 0,
+    credit: 0,
+  },
+  {
+    id: 2,
+    login: 600144,
+    accountType: "demo (MT4)",
+    registrationDate: "24-09-2024 10:15 AM",
+    balance: 1500,
+    equity: 1500,
+    freeMargin: 500,
+    credit: 100,
+  },
+  {
+    id: 3,
+    login: 600145,
+    accountType: "live (MT5)",
+    registrationDate: "25-09-2024 11:30 AM",
+    balance: 3000,
+    equity: 2800,
+    freeMargin: 1000,
+    credit: 200,
+  },
+  {
+    id: 4,
+    login: 600146,
+    accountType: "premium (MT5)",
+    registrationDate: "26-09-2024 08:45 AM",
+    balance: 5000,
+    equity: 4800,
+    freeMargin: 1500,
+    credit: 300,
+  },
 ];
 const LiveAccounts = () => {
   const [filterText, setFilterText] = useState("");
@@ -47,48 +134,7 @@ const LiveAccounts = () => {
     () => <Export onExport={() => downloadCSV(data)} />,
     []
   );
-  const accountData = [
-    {
-      id: 1,
-      login: 600143,
-      accountType: "test (MT5)",
-      registrationDate: "23-09-2024 09:58 AM",
-      balance: 0,
-      equity: 0,
-      freeMargin: 0,
-      credit: 0,
-    },
-    {
-      id: 2,
-      login: 600144,
-      accountType: "demo (MT4)",
-      registrationDate: "24-09-2024 10:15 AM",
-      balance: 1500,
-      equity: 1500,
-      freeMargin: 500,
-      credit: 100,
-    },
-    {
-      id: 3,
-      login: 600145,
-      accountType: "live (MT5)",
-      registrationDate: "25-09-2024 11:30 AM",
-      balance: 3000,
-      equity: 2800,
-      freeMargin: 1000,
-      credit: 200,
-    },
-    {
-      id: 4,
-      login: 600146,
-      accountType: "premium (MT5)",
-      registrationDate: "26-09-2024 08:45 AM",
-      balance: 5000,
-      equity: 4800,
-      freeMargin: 1500,
-      credit: 300,
-    },
-  ];
+
 
   // converter to excel
   function convertArrayOfObjectsToCSV(array) {
@@ -146,7 +192,7 @@ const LiveAccounts = () => {
     <div>
       <h1 className="text-center font-bold">demo table</h1>
 
-      <div className="entries-dropdown">
+      {/* <div className="entries-dropdown">
         <label>
           Show entries:&nbsp;
           <select
@@ -173,7 +219,7 @@ const LiveAccounts = () => {
           border: "1px solid #ccc",
           borderRadius: "4px",
         }}
-      />
+      /> */}
       <DataTable
         columns={columns}
         data={filteredData}
