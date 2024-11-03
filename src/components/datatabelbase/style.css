@@ -13,8 +13,12 @@
   /* order: 1;
   margin-bottom: 10px; */
   position: relative;
-  order: 1;
-  top: -565px;
+    order: 1;
+    top: -605px;
+    border: 2px solid;
+    border-radius: 10%;
+    padding: 12px;
+    margin: 3px;
 }
 
 .pagination-bottom-left {

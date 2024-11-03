@@ -8,7 +8,7 @@ const userRoles = [
   "dashboard",
   "trade-portal",
   "ib-portal",
-  "market-analsys",
+  "market-analysis",
   "pamm-portal",
   "download-links",
   "todo",

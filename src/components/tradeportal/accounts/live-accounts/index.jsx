@@ -2,30 +2,8 @@ import React, { useState } from "react";
 import "./style.css";
 import DataTable from "../../../datatabelbase";
 
-const ExpandedComponent = ({ data }) => (
-  <pre>{JSON.stringify(data, null, 2)}</pre>
-);
 
-const Export = ({ onExport }) => (
-  <button onClick={(e) => onExport(e.target.value)}>Export</button>
-);
-const columns = [
-  {
-    name: "Title",
-    selector: (row) => row.title,
-    sortable: true,
-  },
-  {
-    name: "Year",
-    selector: (row) => row.year,
-    sortable: true,
-  },
-  {
-    name: "buttons",
-    selector: (row) => row.year,
-    sortable: true,
-  },
-];
+
 
 const data = [
   {
@@ -84,6 +62,11 @@ const data = [
     year: "1984",
   },
 ];
+const Export = ({ onExport }) => (
+  <button className="bg-blue-500 px-4 py-2 rounded button-test"  onClick={(e) => onExport(e.target.value)}>Export</button>
+);
+
+
 const accountData = [
   {
     id: 1,
@@ -127,19 +110,34 @@ const accountData = [
   },
 ];
 const LiveAccounts = () => {
-  const [filterText, setFilterText] = useState("");
   const [filteredData, setFilteredData] = useState(data);
+  const [filterText, setFilterText] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const actionsMemo = React.useMemo(
-    () => <Export onExport={() => downloadCSV(data)} />,
-    []
-  );
-
-
+  const actionsMemo = React.useMemo(() => <Export onExport={() => downloadCSV(data)} />, [])
+  const columns = [
+    {
+      name: "Title",
+      selector: (row) => row.title,
+      sortable: true,
+    },
+    {
+      name: "Year",
+      selector: (row) => row.year,
+      sortable: true,
+    },
+    {
+      name: "buttons",
+      selector: (row) => row.year,
+      sortable: true,
+    },
+  ];
+  
+  
+ 
   // converter to excel
   function convertArrayOfObjectsToCSV(array) {
     let result;
-
+    
     const columnDelimiter = ",";
     const lineDelimiter = "\n";
     const keys = Object.keys(data[0]);
@@ -177,6 +175,8 @@ const LiveAccounts = () => {
     link.setAttribute("download", filename);
     link.click();
   }
+
+
   // Filter handler
   const handleFilter = (e) => {
     const searchText = e.target.value.toLowerCase();
@@ -188,10 +188,12 @@ const LiveAccounts = () => {
     );
     setFilteredData(newFilteredData);
   };
+  const ExpandedComponent = ({ data }) => (
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+  );
   return (
-    <div>
-      <h1 className="text-center font-bold">demo table</h1>
-
+    <div className="my-[6%]">
+      
       {/* <div className="entries-dropdown">
         <label>
           Show entries:&nbsp;
@@ -206,28 +208,31 @@ const LiveAccounts = () => {
             <option value={20}>20</option>
           </select>
         </label>
-      </div>
+      </div> */}
       <input
         type="text"
         placeholder="Filter by Title"
         value={filterText}
         onChange={handleFilter}
         style={{
+          float:"right",
           marginBottom: "10px",
           padding: "8px",
           width: "200px",
           border: "1px solid #ccc",
           borderRadius: "4px",
         }}
-      /> */}
+      />
+
       <DataTable
         columns={columns}
         data={filteredData}
-        selectableRows
-        expandableRows
+        // selectableRows
+        // expandableRows
         expandableRowsComponent={ExpandedComponent}
         actions={actionsMemo}
       />
+      
     </div>
   );
 };

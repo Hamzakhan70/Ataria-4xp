@@ -82,7 +82,7 @@ const data = [
   },
 ];
 const paginationComponentOptions = {
-  rowsPerPageText: 'show rows',
+  rowsPerPageText: 'show rows ',
   rangeSeparatorText: 'of',
   selectAllRowsItem: true,
   selectAllRowsItemText: '',
@@ -157,7 +157,6 @@ function DataTableBase(props) {
 
   return (
     <DataTable
-      title="Example Table"
       columns={columns}
       data={data}
       sortIcon={sortIcon}
@@ -172,6 +171,7 @@ function DataTableBase(props) {
       )}
       onChangePage={paginationProps.onChangePage}
       onChangeRowsPerPage={paginationProps.onChangeRowsPerPage}
+      {...props}
     />
   );
 }

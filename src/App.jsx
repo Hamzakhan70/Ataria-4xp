@@ -120,16 +120,18 @@ const App = () => {
       <Router>
         <div>
           <SideBar role={role} setRole={handleRoleChange} />
-          <div className="border-4 ml-[7%] p-3">
+          <div className="absolute top-0 ml-[7%] p-3 w-[-webkit-fill-available]">
             <NavBar />
             <Hero role={role} setRole={handleRoleChange} />
             <Breadcrumbs />
-            {loading ? (
+            <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" />} />
+
+            {/* {loading ? (
               <LoadingSpinner />
             ) : (
-              <Suspense fallback={<LoadingSpinner />}>
-                <Routes>
-                  <Route path="/" element={<Navigate to="/dashboard" />} />
+              <Suspense fallback={<LoadingSpinner />}> */}
+               
                   <Route path="/dashboard" element={<Admin />} />
                   <Route path="/trade-portal" element={<TradePortal />} />
                   <Route path="/ib-portal" element={<IBPortal />} />
@@ -137,9 +139,10 @@ const App = () => {
                   <Route path="/pamm-portal" element={<PAMMPORTAL />} />
                   <Route path="/download-links" element={<DownloadLinks />} />
                   <Route path="/todo" element={<TodoforRedux />} />
+              {/* </Suspense>
+            )} */}
                 </Routes>
-              </Suspense>
-            )}
+
           </div>
         </div>
       </Router>
