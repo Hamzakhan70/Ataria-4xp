@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import LiveAccounts from "../../accounts/live-accounts";
+import LiveAccountsB from "../../accounts/live-accounts/indexb";
 const FundsDeposit = ({ name }) => {
   // Define formik with initial values and validation schema
   const formik = useFormik({
@@ -145,7 +146,9 @@ const FundsDeposit = ({ name }) => {
         </div>
       </form>
       <p className="m-2">Note: All the parameters are compulsory</p>
-      <LiveAccounts />
+      <div className="bg-gray-300 m-8 border-3 rounded ">
+        <LiveAccountsB />
+      </div>
     </div>
   );
 };

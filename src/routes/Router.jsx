@@ -5,7 +5,7 @@ import Employee from "../components/employee/index.jsx";
 import Complience from "../components/complience/index.jsx";
 import TodoforRedux from "../components/todo-for-Redux/index.jsx";
 import Root from "./Root.jsx";
-const router = createBrowserRouter([
+const Router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
@@ -35,4 +35,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router;
+export default Router;

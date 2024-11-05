@@ -1,0 +1,11 @@
+/* Custom CSS to move the filter (search box) to the top-right */
+.dataTables_filter {
+  float: right;
+  margin-top: -1.5rem; /* Adjust as necessary for spacing */
+}
+
+/* Additional styling to align length change dropdown */
+.dataTables_length {
+  float: left;
+  margin-top: -1.5rem; /* Adjust to align with the filter */
+}

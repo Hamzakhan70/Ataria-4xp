@@ -27,7 +27,7 @@ const iFrames = [
     path: "https://webapp.autochartist.com/componentcontainer/broker.php?broker_id=918&amp;user=email&amp;logintoken=f94bbf58b140d2d4001d878bb582d48a&amp;expire=1767564000&amp;account_type=LIVE&amp;locale=en_GB",
   },
 ];
-const MarketAnalysis = () => {
+const MarketAnalysis = ({ setBreadTab }) => {
   const marketAnalysisTabs = [
     "Technical Analysis",
     "Calendar",
@@ -52,9 +52,12 @@ const MarketAnalysis = () => {
     }
   };
   const [activeTab, setActiveTab] = useState("Technical Analysis");
+  const handleTabClick = (tab) => {
+    setBreadTab(tab);
+    setActiveTab(tab); // This updates the breadcrumb
+  };
   return (
     <div>
-      MarketAnalysis
       <div className="bg-gray-100 h-full w-full py-8">
         <div className="flex justify-between flex-wrap lg:flex border-2 rounded border-gray-300">
           {marketAnalysisTabs.map((tab) => (
@@ -65,7 +68,7 @@ const MarketAnalysis = () => {
                   ? "bg-blue-500 text-white"
                   : "hover:bg-blue-500 hover:text-white"
               }`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab}
             </button>

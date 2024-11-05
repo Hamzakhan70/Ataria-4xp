@@ -4,6 +4,7 @@ import Withdraw from "./withdraw";
 import Transfer from "./transfer";
 import WalletHistory from "./wallet-history";
 import LiveAccounts from "../accounts/live-accounts";
+import LiveAccountsB from "../accounts/live-accounts/indexb";
 
 const FundsTabsContent = ({ activeTab, onTabClick }) => {
   const tradeFundsTabs = ["Deposit", "Withdraw", "Transfer", "Wallet History"];
@@ -18,7 +19,7 @@ const FundsTabsContent = ({ activeTab, onTabClick }) => {
         return <FundsDeposit name={"Transfer"} />;
         return <Transfer />;
       case "Wallet History":
-        return <LiveAccounts />;
+        return <LiveAccountsB />;
         return <WalletHistory />;
 
       default:

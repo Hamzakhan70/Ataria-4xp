@@ -48,6 +48,31 @@
   color: #888;
 } */
 
+/* footer adjustment */
+/* App.css */
+body,
+html,
+#root,
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
 /* -----------------------loader on small screen */
 
 .loading-spinner {

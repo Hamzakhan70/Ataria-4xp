@@ -1,5 +1,5 @@
 import DemoAccount from "./demo-account";
-import LiveAccounts from "./live-accounts";
+import LiveAccountsB from "./live-accounts/indexb";
 import OpenDemoAccountForm from "./open-demo-account";
 import OpenRealAccount from "./open-real-account";
 const TabButton = ({ tab, isActive, onClick }) => (
@@ -25,8 +25,9 @@ const AccountTabsContent = ({ activeTab, onTabClick }) => {
       case "Open Demo Accounts":
         return <OpenDemoAccountForm />;
       case "Live Accounts":
-        return <LiveAccounts />;
+        return <LiveAccountsB title={"Live Accounts"} />;
       case "Demo Accounts":
+        return <LiveAccountsB title={"Demo Accounts"} />;
         return <DemoAccount />;
       case "Open Real Accounts":
         return <OpenRealAccount />;

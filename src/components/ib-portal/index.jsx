@@ -4,7 +4,7 @@ import IBPortalAccountTabContent from "./ib-accounts";
 import IBPortalFundsTabContent from "./ib-funds";
 import IBPortalToolsTabContent from "./ib-tools";
 
-const IBPortal = () => {
+const IBPortal = ({ setBreadTab }) => {
   const IBPortalTabs = ["Dashboard", "Accounts", "Funds", "Tools"];
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [accountactiveTab, setAccountActiveTab] = useState("IB Account");
@@ -39,11 +39,15 @@ const IBPortal = () => {
         break;
     }
   };
+  const handleTabClick = (tab) => {
+    setBreadTab(tab);
+    setActiveTab(tab); // This updates the breadcrumb
+  };
   return (
     <div>
       {" "}
       <div className="bg-gray-100 h-full w-full py-8">
-        <div className="flex justify-between flex-wrap lg:flex border-2 rounded border-gray-300">
+        <div className="flex justify-between flex-wrap md:flex border-2 rounded border-gray-300">
           {IBPortalTabs.map((tab) => (
             <button
               key={tab}
@@ -52,7 +56,7 @@ const IBPortal = () => {
                   ? "bg-blue-500 text-white"
                   : "hover:bg-blue-500 hover:text-white"
               }`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab}
             </button>

@@ -57,7 +57,7 @@ const DemoAccount = () => {
               // fdprocessedid="s1mgr7"
             >
               <span>
-                <i class="fa fa-chart-line"></i> Import Trading Accounts
+                <i className="fa fa-chart-line"></i> Import Trading Accounts
               </span>
             </button>{" "}
             <button
@@ -68,7 +68,7 @@ const DemoAccount = () => {
               fdprocessedid="fuej7"
             >
               <span>
-                <i class="fa fa-upload"></i> Export to Excel
+                <i className="fa fa-upload"></i> Export to Excel
               </span>
             </button>{" "}
             <button
@@ -79,7 +79,7 @@ const DemoAccount = () => {
               fdprocessedid="wemb5g"
             >
               <span>
-                <i class="fa fa-filter"></i> Filter
+                <i className="fa fa-filter"></i> Filter
               </span>
             </button>{" "}
           </div>

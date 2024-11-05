@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import "~datatables.net-dt/css/jquery.dataTables.min.css"; */
+
 body {
   margin: 0;
   padding: 0;

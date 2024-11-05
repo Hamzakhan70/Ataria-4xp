@@ -46,7 +46,7 @@ const SideBar = ({ role: active, setRole }) => {
         )}
       </div>
       <div
-        className={`relative top-0 left-0 z-10 h-[100vh] transform transition-transform duration-300 ease-in-out text-2xl
+        className={`bg-white md: bg-none relative top-0 left-0 z-10 h-auto transform transition-transform duration-300 ease-in-out text-2xl
     ${isOpen ? "translate-x-0" : "-translate-x-full"}
     w-[30%] shadow-lg overflow-visible custom-scrollbar sm:translate-x-0 sm:w-[10%] lg:w-[7%] lg:text-2xl md:w-[10%] md:text-2xl md:p-2 md:m-1`}
       >
@@ -54,7 +54,11 @@ const SideBar = ({ role: active, setRole }) => {
           <div
             key={name}
             className={`relative px-3 py-3 cursor-pointer flex justify-center items-center lg:mt-4 group
-        ${name === active ? "bg-gray-200 text-red-600 m-2 rounded-3xl" : "text-black"} 
+        ${
+          name === active
+            ? "bg-gray-200 text-red-600 m-2 rounded-3xl"
+            : "text-black"
+        } 
         hover:bg-blue-500 rounded-3xl m-2 transition-colors duration-300 ease-in-out`}
             onClick={() => setRole(name)}
           >

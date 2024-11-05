@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./style.css";
-import DataTable from "../../../datatabelbase";
+// import "./style.css";
 
-
-
+// import DataTable from "../../../datatabelbase";
+import DataTable from "react-data-table-component";
+import MyCustomTable from "./Button";
 
 const data = [
   {
@@ -63,9 +63,13 @@ const data = [
   },
 ];
 const Export = ({ onExport }) => (
-  <button className="bg-blue-500 px-4 py-2 rounded button-test"  onClick={(e) => onExport(e.target.value)}>Export</button>
+  <button
+    className="bg-blue-500 px-4 py-2 rounded button-test"
+    onClick={(e) => onExport(e.target.value)}
+  >
+    Export
+  </button>
 );
-
 
 const accountData = [
   {
@@ -113,7 +117,10 @@ const LiveAccounts = () => {
   const [filteredData, setFilteredData] = useState(data);
   const [filterText, setFilterText] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const actionsMemo = React.useMemo(() => <Export onExport={() => downloadCSV(data)} />, [])
+  const actionsMemo = React.useMemo(
+    () => <Export onExport={() => downloadCSV(data)} />,
+    []
+  );
   const columns = [
     {
       name: "Title",
@@ -131,13 +138,11 @@ const LiveAccounts = () => {
       sortable: true,
     },
   ];
-  
-  
- 
+
   // converter to excel
   function convertArrayOfObjectsToCSV(array) {
     let result;
-    
+
     const columnDelimiter = ",";
     const lineDelimiter = "\n";
     const keys = Object.keys(data[0]);
@@ -176,7 +181,6 @@ const LiveAccounts = () => {
     link.click();
   }
 
-
   // Filter handler
   const handleFilter = (e) => {
     const searchText = e.target.value.toLowerCase();
@@ -192,8 +196,7 @@ const LiveAccounts = () => {
     <pre>{JSON.stringify(data, null, 2)}</pre>
   );
   return (
-    <div className="my-[6%]">
-      
+    <div className="mt-[3%] border-4 border-black ">
       {/* <div className="entries-dropdown">
         <label>
           Show entries:&nbsp;
@@ -209,30 +212,35 @@ const LiveAccounts = () => {
           </select>
         </label>
       </div> */}
-      <input
+      {/* <input
         type="text"
         placeholder="Filter by Title"
         value={filterText}
         onChange={handleFilter}
         style={{
-          float:"right",
+          float: "right",
           marginBottom: "10px",
           padding: "8px",
           width: "200px",
           border: "1px solid #ccc",
           borderRadius: "4px",
         }}
-      />
+      /> */}
 
-      <DataTable
+      {/* <DataTable
+        className=" w-full overflow-visible "
         columns={columns}
         data={filteredData}
-        // selectableRows
-        // expandableRows
+        selectableRows
+        expandableRows
         expandableRowsComponent={ExpandedComponent}
         actions={actionsMemo}
-      />
-      
+      /> */}
+
+      {/* copy paste */}
+      <div className="h-40 overflow-y-auto">
+        <MyCustomTable columns={columns} data={data} />
+      </div>
     </div>
   );
 };

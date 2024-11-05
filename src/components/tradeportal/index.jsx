@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AccountTabsContent from "./accounts";
 import FundsTabsContent from "./funds";
 import TradeHistory from "./trade-history";
 import TradeHelpContent from "./help";
-const TradePortal = () => {
+const TradePortal = ({ setBreadTab }) => {
   const tradePortalTabs = ["Accounts", "Funds", "Trade History", "Help"];
   const [activeTab, setActiveTab] = useState("Accounts");
   const [accountactiveTab, setAccountActiveTab] = useState("Live Accounts");
@@ -47,7 +47,10 @@ const TradePortal = () => {
         return null;
     }
   };
-
+  const handleTabClick = (tab) => {
+    setBreadTab(tab);
+    setActiveTab(tab); // This updates the breadcrumb
+  };
   return (
     <div className="bg-gray-100 h-full w-full py-4">
       <div className="flex justify-between flex-wrap lg:flex border-2 rounded border-gray-300">
@@ -59,7 +62,7 @@ const TradePortal = () => {
                 ? "bg-blue-500 text-white"
                 : "hover:bg-blue-500 hover:text-white"
             }`}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleTabClick(tab)}
           >
             {tab}
           </button>
