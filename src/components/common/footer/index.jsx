@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="text-center p-3 z-1 bg-black border-t-2 border-white text-white ">
+    <div className="text-center p-3 z-1 bg-black border-t-2 border-white text-white  ">
       <div className="flex justify-center md:justify-between items-center flex-wrap">
         <div className="p-5 md:p-10 ">
           <p>Copyright © 2024 4xportal. All rights reserved.</p>

@@ -58,7 +58,7 @@ const MarketAnalysis = ({ setBreadTab }) => {
   };
   return (
     <div>
-      <div className="bg-gray-100 h-full w-full py-8">
+      <div className="bg-gray-100 h-full w-full py-8 p-3">
         <div className="flex justify-between flex-wrap lg:flex border-2 rounded border-gray-300">
           {marketAnalysisTabs.map((tab) => (
             <button

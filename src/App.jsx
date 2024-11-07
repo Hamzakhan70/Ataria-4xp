@@ -187,7 +187,6 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Layout wrapper for main routes */}
         <Route
           element={
             <Layout
@@ -198,7 +197,6 @@ const App = () => {
             />
           }
         >
-          {/* Define routes within the layout */}
           <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="/dashboard" element={<Admin />} />
           <Route

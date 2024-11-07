@@ -52,9 +52,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-const Breadcrumbs = ({ role, activeTab }) => {
+const Breadcrumbs = ({ role, activeTab, setRole }) => {
+  if (role === "dashboard") {
+    activeTab = "";
+  }
   return (
-    <div className="flex flex-wrap justify-between items-center m-3">
+    <div className="flex flex-wrap justify-between items-center m-3 px-4">
       <header>
         <h1 className="text-2xl uppercase font-bold">
           {" "}
@@ -62,12 +65,20 @@ const Breadcrumbs = ({ role, activeTab }) => {
         </h1>
       </header>
       <nav className="flex space-x-2 text-gray-700 text-sm">
-        <Link to="/" className="hover:underline ">
+        <Link
+          to="/"
+          className="hover:underline "
+          onClick={() => setRole("dashboard")}
+        >
           {<FaHome className="inline mx-1 mb-1 text-blue-500" />}
           Home
         </Link>
         <span>/</span>
-        <Link to={`/${role}`} className="hover:underline capitalize">
+        <Link
+          to={`/${role}`}
+          className="hover:underline capitalize"
+          onClick={() => {}}
+        >
           {role.replace("-", " ")}
         </Link>
         {activeTab && (

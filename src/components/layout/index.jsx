@@ -37,19 +37,24 @@ const Layout = ({ role, handleRoleChange, activeTab, setActiveTab }) => {
   //   </div>
   // );
   return (
-    // JSX
-    <div className="app-container">
-      <div className="main-content">
-        <SideBar role={role} setRole={handleRoleChange} />
-        <div className="content-area">
+    <>
+      <div className="flex w-full h-auto">
+        <div className="h-full w-[7%]">
+          <SideBar role={role} setRole={handleRoleChange} />
+        </div>
+        <div className="h-full w-full overflow-hidden">
           <NavBar />
           <Hero role={role} setRole={handleRoleChange} />
-          <Breadcrumbs role={role} activeTab={activeTab} />
+          <Breadcrumbs
+            role={role}
+            activeTab={activeTab}
+            setRole={handleRoleChange}
+          />
           <Outlet />
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -60,7 +60,7 @@ const cardData = [
 
 const Admin = () => {
   return (
-    <div className="w-full  py-2 text-black">
+    <div className="w-full py-2 px-3 text-black">
       <div className="h-auto lg:h-[40%] rounded-lg bg-gradient-to-r from-blue-900 via-purple-800 to-black flex flex-col lg:flex-row justify-between p-4 mb-6">
         <div>
           <h1 className="text-white font-bold text-2xl p-2">
